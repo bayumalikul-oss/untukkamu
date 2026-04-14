@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Untuk yume Tersayang 🤍</title>
+    <!-- Font & Styles -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(145deg, #fef9f0 0%, #ffe6f0 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.5rem;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Floating hearts background */
+        .floating-heart {
+            position: fixed;
+            font-size: 1.4rem;
+            user-select: none;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.3;
+            animation: floatHeart 12s infinite ease-in-out;
+        }
+
+        @keyframes floatHeart {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            20% {
+                opacity: 0.5;
+            }
+            80% {
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateY(-20vh) rotate(20deg);
+                opacity: 0;
+            }
+        }
+
+        /* Main card container */
+        .card {
+            max-width: 650px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(8px);
+            border-radius: 3rem;
+            box-shadow: 0 30px 45px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.6);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            z-index: 10;
+            position: relative;
+        }
+
+        .card:hover {
+            transform: scale(1.01);
+        }
+
+        /* Hero section with photo placeholder */
+        .hero {
+            background: linear-gradient(135deg, #ffb7c5, #ff8aa8);
+            padding: 2rem 1.5rem 3rem;
+            text-align: center;
+            position: relative;
+            color: white;
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            background: white;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+            border: 4px solid #fff6e0;
+            transition: all 0.3s;
+            overflow: hidden;
+        }
+
+        .avatar i {
+            font-size: 4.5rem;
+            color: #ff6f91;
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero p {
+            font-weight: 500;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Content area */
+        .content {
+            padding: 2rem 2rem 2rem;
+        }
+
+        .message-box {
+            background: rgba(255, 250, 240, 0.8);
+            border-radius: 2rem;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(255, 192, 203, 0.5);
+        }
+
+        .message-box p {
+            font-size: 1.1rem;
+            line-height: 1.65;
+            color: #4a2e2e;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .signature {
+            text-align: right;
+            font-style: italic;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: #d45a7a;
+            margin-top: 0.5rem;
+        }
+
+        /* Love reasons list */
+        .reasons {
+            background: #fff4f7;
+            border-radius: 1.8rem;
+            padding: 1.3rem 1.8rem;
+            margin-bottom: 2rem;
+        }
+
+        .reasons h3 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.4rem;
+            color: #b13e5e;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .reasons ul {
+            list-style: none;
+        }
+
+        .reasons li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #4a2e2e;
+        }
+
+        .reasons li i {
+            color: #ff6b8b;
+            width: 24px;
+            font-size: 1.2rem;
+        }
+
+        /* Interactive button & music */
+        .action {
+            display: flex;
+            justify-content: center;
+            margin: 1.5rem 0 1rem;
+        }
+
+        .btn-love {
+            background: #ff7b9c;
+            border: none;
+            padding: 0.9rem 2rem;
+            border-radius: 60px;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: white;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            box-shadow: 0 8px 18px rgba(255, 107, 139, 0.4);
+            transition: all 0.2s ease;
+        }
+
+        .btn-love:hover {
+            background: #e86585;
+            transform: scale(1.02);
+            box-shadow: 0 12px 22px rgba(255, 107, 139, 0.5);
+        }
+
+        .music-toggle {
+            display: flex;
+            justify-content: center;
+            margin-top: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .music-btn {
+            background: none;
+            border: 1px solid #ffb7c5;
+            background: rgba(255, 245, 240, 0.7);
+            border-radius: 40px;
+            padding: 0.4rem 1rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #b85874;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.2s;
+        }
+
+        .music-btn i {
+            font-size: 0.9rem;
+        }
+
+        /* Love meter */
+        .meter {
+            margin-top: 1.8rem;
+            text-align: center;
+        }
+
+        .meter-label {
+            font-weight: 600;
+            color: #c95c7a;
+            margin-bottom: 6px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .progress-bar {
+            background: #ffe0e7;
+            border-radius: 30px;
+            height: 14px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, #ff85a3, #ff476e);
+            width: 100%;
+            height: 100%;
+            border-radius: 30px;
+            animation: glowPulse 1.8s infinite alternate;
+        }
+
+        @keyframes glowPulse {
+            0% {
+                box-shadow: 0 0 0px #ff85a3;
+            }
+            100% {
+                box-shadow: 0 0 8px #ff476e;
+            }
+        }
+
+        /* Confetti canvas */
+        #confetti-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        /* Responsive */
+        @media (max-width: 550px) {
+            .content {
+                padding: 1.5rem;
+            }
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+            .message-box p {
+                font-size: 1rem;
+            }
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.7rem;
+            padding: 1rem 0 1.5rem;
+            color: #b98292;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background floating hearts (generated by js) -->
+    <canvas id="confetti-canvas" style="display: none;"></canvas>
+    <div id="floating-hearts-container"></div>
+
+    <div class="card">
+        <div class="hero">
+            <div class="avatar" id="avatarBtn" style="cursor: pointer;">
+                <i class="fas fa-heart" id="avatarIcon"></i>
+            </div>
+            <h1>💗 Untuk Kesayangan Azy 💗</h1>
+            <p>Semua Yang Kita Lalui Benar" Indah</p>
+        </div>
+
+        <div class="content">
+            <div class="message-box">
+                <p>🌹 <strong>Halo, cintaku...</strong> 🌹</p>
+                <p>Hari ini, dan setiap hari, aku ingin kamu tahu betapa berartinya dirimu dalam hidupku. Senyummu menerangi hariku, dan tawamu adalah melodi terbaik yang pernah kudengar.</p>
+                <p>Aku bersyukur untuk setiap detik, setiap pelukan, dan setiap cerita yang kita bagi. Kamu membuatku menjadi versi terbaik dari diriku. Terima kasih sudah menjadi rumah bagi hatiku.</p>
+                <div class="signature">— Dari aku, yang selalu untukmu 🤍</div>
+            </div>
+
+            <div class="reasons">
+                <h3><i class="fas fa-star"></i> Alasan aku jatuh cinta padamu <i class="fas fa-star"></i></h3>
+                <ul>
+                    <li><i class="fas fa-smile-wink"></i> Caramu tersenyum saat pagi hari</li>
+                    <li><i class="fas fa-head-side-brain"></i> Kebaikan hati dan caramu peduli</li>
+                    <li><i class="fas fa-laugh-squint"></i> Setiap obrolan random kita hingga larut malam</li>
+                    <li><i class="fas fa-hand-holding-heart"></i> Caramu membuat segalanya terasa lebih indah</li>
+                    <li><i class="fas fa-infinity"></i> Karena kamu adalah kamu — unik, kuat, dan sempurna di mataku</li>
+                </ul>
+            </div>
+
+            <!-- Love meter -->
+            <div class="meter">
+                <div class="meter-label">
+                    <i class="fas fa-heartbeat"></i> Seberapa besar aku menyayangimu? <i class="fas fa-heartbeat"></i>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+                <p style="font-size: 0.75rem; margin-top: 6px;">💘 tak terhingga + selamanya 💘</p>
+            </div>
+
+            <div class="action">
+                <button class="btn-love" id="loveButton">
+                    <i class="fas fa-heart"></i> Tekan untuk kejutan spesial
+                </button>
+            </div>
+            <div class="music-toggle">
+                <button class="music-btn" id="musicToggleBtn">
+                    <i class="fas fa-music"></i> Putar lagu romantis
+                </button>
+            </div>
+            <footer>
+                ✨ Untukmu yang selalu dihati ✨
+            </footer>
+        </div>
+    </div>
+
+    <!-- Audio untuk musik latar (simple instrumental / lagu romantis bebas royalti) -->
+    <audio id="bgMusic" loop preload="auto">
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        <!-- fallback jika tidak bisa, tapi kita bisa tetap mencoba; lagu ini instrumental dan cocok -->
+    </audio>
+
+    <script>
+        (function(){
+            // ---------- ELEMENTS ----------
+            const loveBtn = document.getElementById('loveButton');
+            const musicToggle = document.getElementById('musicToggleBtn');
+            const bgAudio = document.getElementById('bgMusic');
+            const avatarDiv = document.getElementById('avatarBtn');
+            const avatarIcon = document.getElementById('avatarIcon');
+            
+            // State musik
+            let isMusicPlaying = false;
+            
+            // Konfeti & efek percikan cinta
+            function startConfetti() {
+                // Simple canvas confetti dengan efek meriah
+                const canvas = document.createElement('canvas');
+                canvas.id = 'real-confetti-canvas';
+                canvas.style.position = 'fixed';
+                canvas.style.top = '0';
+                canvas.style.left = '0';
+                canvas.style.width = '100%';
+                canvas.style.height = '100%';
+                canvas.style.pointerEvents = 'none';
+                canvas.style.zIndex = '1001';
+                document.body.appendChild(canvas);
+                
+                const myConfetti = canvas.getContext('2d');
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+                
+                let particles = [];
+                const colors = ['#ffb7c5', '#ff6f91', '#ffa0b9', '#ff476e', '#ff85a3', '#ffc0cb', '#ffd966'];
+                
+                for(let i=0; i<150; i++) {
+                    particles.push({
+                        x: Math.random() * canvas.width,
+                        y: Math.random() * canvas.height - canvas.height,
+                        size: Math.random() * 7 + 3,
+                        color: colors[Math.floor(Math.random() * colors.length)],
+                        speedY: Math.random() * 5 + 3,
+                        speedX: (Math.random() - 0.5) * 2,
+                        rotation: Math.random() * 360,
+                        rotateSpeed: (Math.random() - 0.5) * 6,
+                        shape: Math.random() > 0.7 ? 'heart' : 'circle'
+                    });
+                }
+                
+                let animationId;
+                let startTime = null;
+                const duration = 2800; // 2.8 detik confetti
+                
+                function drawHeart(ctx, x, y, size, color) {
+                    ctx.save();
+                    ctx.translate(x, y);
+                    ctx.scale(0.5, 0.5);
+                    ctx.beginPath();
+                    const topCurveHeight = size * 0.3;
+                    ctx.moveTo(0, topCurveHeight);
+                    ctx.bezierCurveTo(0, 0, -size, 0, -size, topCurveHeight);
+                    ctx.bezierCurveTo(-size, topCurveHeight * 1.6, 0, size * 1.2, 0, size);
+                    ctx.bezierCurveTo(0, size * 1.2, size, topCurveHeight * 1.6, size, topCurveHeight);
+                    ctx.bezierCurveTo(size, 0, 0, 0, 0, topCurveHeight);
+                    ctx.closePath();
+                    ctx.fillStyle = color;
+                    ctx.fill();
+                    ctx.restore();
+                }
+                
+                function drawParticle(p) {
+                    if(p.shape === 'heart') {
+                        drawHeart(myConfetti, p.x, p.y, p.size * 1.2, p.color);
+                    } else {
+                        myConfetti.beginPath();
+                        myConfetti.rect(p.x, p.y, p.size * 0.8, p.size * 0.8);
+                        myConfetti.fillStyle = p.color;
+                        myConfetti.fill();
+                    }
+                }
+                
+                function updateConfetti(now) {
+                    if(!startTime) startTime = now;
+                    const elapsed = now - startTime;
+                    if(elapsed >= duration) {
+                        cancelAnimationFrame(animationId);
+                        canvas.remove();
+                        return;
+                    }
+                    
+                    myConfetti.clearRect(0, 0, canvas.width, canvas.height);
+                    for(let p of particles) {
+                        p.y += p.speedY;
+                        p.x += p.speedX;
+                        if(p.y > canvas.height + 50) {
+                            p.y = -30;
+                            p.x = Math.random() * canvas.width;
+                        }
+                        if(p.x > canvas.width + 30) p.x = -30;
+                        if(p.x < -30) p.x = canvas.width + 30;
+                        drawParticle(p);
+                    }
+                    animationId = requestAnimationFrame(updateConfetti);
+                }
+                
+                animationId = requestAnimationFrame(updateConfetti);
+                
+                // Hapus canvas setelah durasi selesai via timeout pengaman
+                setTimeout(() => {
+                    if(animationId) cancelAnimationFrame(animationId);
+                    if(canvas && canvas.parentNode) canvas.remove();
+                }, duration + 200);
+            }
+            
+            // Tampilkan notifikasi love dan trigger efek bunga hati
+            function showLoveExplosion() {
+                // trigger confetti
+                startConfetti();
+                
+                // Buat floating teks cinta sementara
+                const heartMsg = document.createElement('div');
+                heartMsg.innerText = '💖 I LOVE YOU 💖';
+                heartMsg.style.position = 'fixed';
+                heartMsg.style.top = '50%';
+                heartMsg.style.left = '50%';
+                heartMsg.style.transform = 'translate(-50%, -50%)';
+                heartMsg.style.backgroundColor = 'rgba(255, 240, 245, 0.9)';
+                heartMsg.style.color = '#e8436e';
+                heartMsg.style.fontSize = '2.2rem';
+                heartMsg.style.fontWeight = 'bold';
+                heartMsg.style.fontFamily = "'Playfair Display', cursive";
+                heartMsg.style.padding = '1rem 2rem';
+                heartMsg.style.borderRadius = '60px';
+                heartMsg.style.boxShadow = '0 15px 35px rgba(0,0,0,0.2)';
+                heartMsg.style.zIndex = '2000';
+                heartMsg.style.backdropFilter = 'blur(8px)';
+                heartMsg.style.border = '2px solid #ffb7c5';
+                heartMsg.style.whiteSpace = 'nowrap';
+                heartMsg.style.pointerEvents = 'none';
+                document.body.appendChild(heartMsg);
+                
+                setTimeout(() => {
+                    heartMsg.style.opacity = '1';
+                    heartMsg.style.transition = 'opacity 0.5s ease';
+                    setTimeout(() => {
+                        heartMsg.style.opacity = '0';
+                        setTimeout(() => {
+                            if(heartMsg.parentNode) heartMsg.remove();
+                        }, 500);
+                    }, 1500);
+                }, 10);
+                
+                // juga mengirim getaran kecil (jika support)
+                if(navigator.vibrate) navigator.vibrate(200);
+            }
+            
+            // event untuk tombol love
+            loveBtn.addEventListener('click', () => {
+                showLoveExplosion();
+                // animasi ekstra klik tombol
+                loveBtn.style.transform = 'scale(0.96)';
+                setTimeout(() => {
+                    loveBtn.style.transform = '';
+                }, 150);
+            });
+            
+            // Fungsi memutar / pause musik
+            function toggleMusic() {
+                if(!isMusicPlaying) {
+                    bgAudio.play().then(() => {
+                        isMusicPlaying = true;
+                        musicToggle.innerHTML = '<i class="fas fa-pause-circle"></i> Hentikan lagu';
+                    }).catch((err) => {
+                        console.log("Audio autoplay diblokir browser, interaksi pengguna tetap bisa memutar");
+                        // tetap coba lagi atau beri tahu
+                        alert("Klik izinkan untuk memutar musik latar (perlu interaksi). Klik tombol lagu sekali lagi.");
+                        // fallback: tetap ubah state, tapi sebenarnya gagal. Kita set false agar bisa di klik ulang
+                        isMusicPlaying = false;
+                        musicToggle.innerHTML = '<i class="fas fa-music"></i> Putar lagu romantis';
+                    });
+                } else {
+                    bgAudio.pause();
+                    isMusicPlaying = false;
+                    musicToggle.innerHTML = '<i class="fas fa-music"></i> Putar lagu romantis';
+                }
+            }
+            
+            musicToggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                toggleMusic();
+            });
+            
+            // Auto attempt untuk preload, tidak auto play karena kebijakan browser
+            // Tapi kita set volume rendah
+            bgAudio.volume = 0.35;
+            
+            // Avatar sentuhan: ganti icon love menjadi hati yang lebih berkilau (efek manis)
+            let avatarClickCount = 0;
+            avatarDiv.addEventListener('click', () => {
+                avatarClickCount++;
+                if(avatarClickCount % 2 === 1) {
+                    avatarIcon.className = 'fas fa-heart-broken';
+                    avatarIcon.style.color = '#ff9eb5';
+                    setTimeout(() => {
+                        avatarIcon.className = 'fas fa-heart';
+                        avatarIcon.style.color = '#ff6f91';
+                    }, 800);
+                } else {
+                    avatarIcon.className = 'fas fa-heart';
+                    avatarIcon.style.color = '#ff6f91';
+                }
+                // efek spark kecil
+                const spark = document.createElement('div');
+                spark.innerHTML = '✨';
+                spark.style.position = 'absolute';
+                spark.style.fontSize = '1.4rem';
+                spark.style.left = (avatarDiv.getBoundingClientRect().left + 50) + 'px';
+                spark.style.top = (avatarDiv.getBoundingClientRect().top + 40) + 'px';
+                spark.style.pointerEvents = 'none';
+                spark.style.opacity = '1';
+                spark.style.transition = 'all 0.6s ease';
+                document.body.appendChild(spark);
+                setTimeout(() => {
+                    spark.style.opacity = '0';
+                    spark.style.transform = 'translateY(-30px)';
+                    setTimeout(() => spark.remove(), 700);
+                }, 20);
+            });
+            
+            // ---- background floating hearts (dekorasi) ----
+            const heartsContainer = document.getElementById('floating-hearts-container');
+            function createFloatingHeart() {
+                const heart = document.createElement('div');
+                heart.classList.add('floating-heart');
+                const icons = ['❤️', '💖', '💗', '💓', '💘', '💕', '🌸'];
+                heart.innerHTML = icons[Math.floor(Math.random() * icons.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.fontSize = Math.random() * 20 + 15 + 'px';
+                heart.style.animationDuration = Math.random() * 8 + 7 + 's';
+                heart.style.animationDelay = Math.random() * 5 + 's';
+                heart.style.opacity = Math.random() * 0.4 + 0.2;
+                heartsContainer.appendChild(heart);
+                setTimeout(() => {
+                    heart.remove();
+                }, 13000);
+            }
+            setInterval(createFloatingHeart, 1800);
+            for(let i=0;i<12;i++) setTimeout(createFloatingHeart, i*300);
+            
+            // menambahkan efek love cursor saat klik di area card
+            document.querySelector('.card').addEventListener('click', function(e) {
+                if(e.target === loveBtn || e.target.closest('.btn-love')) return;
+                // efek ripple kecil love
+                const ripple = document.createElement('div');
+                ripple.innerHTML = '💗';
+                ripple.style.position = 'absolute';
+                ripple.style.left = e.clientX + 'px';
+                ripple.style.top = e.clientY + 'px';
+                ripple.style.fontSize = '1.5rem';
+                ripple.style.pointerEvents = 'none';
+                ripple.style.transform = 'translate(-50%, -50%)';
+                ripple.style.opacity = '0.8';
+                ripple.style.transition = 'all 0.6s ease-out';
+                ripple.style.zIndex = '999';
+                document.body.appendChild(ripple);
+                setTimeout(() => {
+                    ripple.style.opacity = '0';
+                    ripple.style.transform = 'translate(-50%, -50%) scale(1.8)';
+                    setTimeout(() => ripple.remove(), 600);
+                }, 20);
+            });
+            
+            // menambahkan efek sentuhan manis saat load
+            console.log('Happy Love Web for Pacar!');
+            
+            // Ubah sedikit progress bar cinta dengan animasi yang menarik (sudah ada)
+            // Optional: menambahkan pesan pada favicon? skip
+            // buat tombol musik bisa digunakan pertama kali user interaksi
+            document.body.addEventListener('click', function initAudioOnce() {
+                // Hanya untuk membantu jika user klik di mana saja, musik bisa dimulai, 
+                // tapi tidak auto, hanya memungkinkan user bisa langsung menekan tombol tanpa error.
+                // kita tidak memaksa autoplay, tapi hanya melepaskan promise jika audio di play nanti.
+                if(bgAudio && bgAudio.paused === true && !isMusicPlaying) {
+                    // tidak otomatis, biar tombol musik yang memulai
+                }
+                // remove listener setelah interaksi pertama
+                document.body.removeEventListener('click', initAudioOnce);
+            });
+        })();
+    </script>
+</body>
+</html>
